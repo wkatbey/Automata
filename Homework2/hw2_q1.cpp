@@ -5,31 +5,23 @@ using namespace std;
 bool isStringAccepted(string);
 
 int main() {
-
+	
     string tempBitString;
     string input[6];
 
     ifstream inputFile("input.txt");
     if (inputFile.is_open()) {
         int i = 0;
-        while (getline(myfile, tempBitString)) {
+        while (getline(inputFile, tempBitString)) {
             input[i++] = tempBitString;
         }
         inputFile.close();
     }
 
-    /*string input[] = {
-                    "1000000",
-                    "1000000000000",
-                    "1000",
-                    "1111101",
-                    "100100",
-                    "1010001"
-                    };*/
-
+    int inputSize = sizeof(input)/sizeof(input[0]);
 
     //Run through each index in 'input'
-    for (int i = 0; i < sizeof(input); i++) {
+    for (int i = 0; i < inputSize; i++) {
         if (isStringAccepted(input[i])) {
             cout << input[i] << ": Accepted" << endl;
         }
